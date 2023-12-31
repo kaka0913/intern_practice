@@ -1,5 +1,7 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:go_router/go_router.dart';
 
 class AccountScreen extends StatelessWidget {
@@ -18,7 +20,7 @@ class AccountScreen extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () => context.push('/account/details'),
-                child:const Text('Go to Account Details'),
+                child: const Text('Go to Account Details'),
               ),
             ],
           ),
