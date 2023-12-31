@@ -1,7 +1,7 @@
 .PHONY: clean
 clean:
 	flutter clean
-	make pub_get
+	flutter pub_get
 
 .PHONY: format
 format:
