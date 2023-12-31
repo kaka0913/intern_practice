@@ -1,7 +1,8 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-import 'app.dart';
+// Project imports:
+import 'package:intern_practice/app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,5 +18,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-

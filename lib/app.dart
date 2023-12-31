@@ -1,3 +1,4 @@
+// Flutter imports:
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,13 +12,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
   @override
   Widget build(BuildContext BuildContext) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
-        items: const <BottomNavigationBarItem> [
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
             label: 'Search',
@@ -31,19 +30,22 @@ class _MyHomePageState extends State<MyHomePage> {
       tabBuilder: (context, index) {
         switch (index) {
           case 0: // 1番左のタブが選ばれた時の画面
-            return CupertinoTabView(builder: (context) {
-              return const CupertinoPageScaffold(
-                navigationBar: CupertinoNavigationBar(
-  leading: Icon(CupertinoIcons.back),
-  middle: Text('Page Title'), // ナビゲーションバーの中央に表示されるウィジェット
-),
-                child: SearchScreen(), // 表示したい画面のWidget
-              );
-            });
+            return CupertinoTabView(
+              builder: (context) {
+                return const CupertinoPageScaffold(
+                  navigationBar: CupertinoNavigationBar(
+                    leading: Icon(CupertinoIcons.back),
+                    middle: Text('Page Title'), // ナビゲーションバーの中央に表示されるウィジェット
+                  ),
+                  child: SearchScreen(), // 表示したい画面のWidget
+                );
+              },
+            );
           case 1: // ほぼ同じなので割愛
-            
+
           default:
-            return SizedBox(child: Center(child: Text('Invalid index: $index')));
+            return SizedBox(
+                child: Center(child: Text('Invalid index: $index')));
         }
       },
     );
@@ -51,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class SearchScreen extends StatefulWidget {
-  const SearchScreen({Key? key}) : super(key: key);
+  const SearchScreen({super.key});
 
   @override
   _SearchScreenState createState() => _SearchScreenState();
