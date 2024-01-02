@@ -18,8 +18,8 @@ class AccountScreen extends StatelessWidget {
               child: Text('Account'),
             ),
             ElevatedButton(
-              onPressed: () => context.push('/account/details'),
-              child: const Text('Go to Account Details'),
+              onPressed: () => context.go('/sub'),
+              child: const Text('Go to Sub '),
             ),
           ],
         ),
