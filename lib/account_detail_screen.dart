@@ -6,9 +6,17 @@ class AccountDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Detail'),
+    return Scaffold(
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          mainAxisSpacing: 10,
+        ),
+        itemBuilder: (context, index) {
+          return Center(
+            child: Text('Item $index'),
+          );
+        },
       ),
     );
   }
