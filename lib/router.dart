@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:intern_practice/account_detail_screen.dart';
 import 'package:intern_practice/account_screen.dart';
 import 'package:intern_practice/my_home_page.dart';
+import 'package:intern_practice/pageview.dart';
 import 'package:intern_practice/scafford_with_navbar.dart';
 import 'package:intern_practice/subpage.dart';
 
@@ -58,6 +59,16 @@ final goRouterProvider = Provider<GoRouter>((ref) {
                 path: '/home',
                 builder: (context, state) {
                   return const MyHomePage();
+                },
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: <RouteBase>[
+              GoRoute(
+                path: '/pageview',
+                builder: (context, state) {
+                  return const PageViewWidget();
                 },
               ),
             ],
