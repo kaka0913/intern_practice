@@ -22,7 +22,9 @@ class ScaffoldWithNavbar extends StatelessWidget {
           BottomNavigationBarItem(icon: Icon(Icons.shop), label: 'Shope'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_box), label: 'Pageview',)
+            icon: Icon(Icons.account_box),
+            label: 'Pageview',
+          )
         ],
         onTap: _onTap,
       ),

@@ -1,7 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 class PageViewWidget extends StatelessWidget {
-
   const PageViewWidget({super.key});
   @override
   Widget build(BuildContext context) {
@@ -9,7 +9,7 @@ class PageViewWidget extends StatelessWidget {
     final controller = PageController(
       initialPage: 1,
       viewportFraction: 1.2,
-      );
+    );
     return PageView(
       /// [PageView.scrollDirection] defaults to [Axis.horizontal].
       /// Use [Axis.vertical] to scroll vertically.

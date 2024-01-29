@@ -1,15 +1,18 @@
-
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Project imports:
 import 'package:intern_practice/drift/todos.dart';
 import 'package:intern_practice/provider/drift_provider.dart';
 
 class DriftSample extends ConsumerWidget {
-  const DriftSample( {
+  const DriftSample({
     super.key,
   });
 
-  
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final database = ref.watch(driftProvider);
@@ -31,8 +34,7 @@ class DriftSample extends ConsumerWidget {
                     itemCount: snapshot.data!.length,
                     itemBuilder: (context, index) => TextButton(
                       child: Text(snapshot.data![index].content),
-                      onPressed: () async {
-                      },
+                      onPressed: () async {},
                     ),
                   );
                 },
@@ -47,7 +49,7 @@ class DriftSample extends ConsumerWidget {
                     child: ElevatedButton(
                       child: const Text('Add'),
                       onPressed: () async {
-                          await database.addTodo(
+                        await database.addTodo(
                           'test test test',
                         );
                       },
