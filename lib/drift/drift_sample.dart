@@ -5,11 +5,10 @@ import 'package:intern_practice/drift/todos.dart';
 import 'package:intern_practice/provider/drift_provider.dart';
 
 class DriftSample extends ConsumerWidget {
-  const DriftSample(this.ref, {
+  const DriftSample( {
     super.key,
   });
 
-  final Ref ref;
   
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -29,7 +28,6 @@ class DriftSample extends ConsumerWidget {
                     return const Center(child: CircularProgressIndicator());
                   }
                   return ListView.builder(
-                    //11
                     itemCount: snapshot.data!.length,
                     itemBuilder: (context, index) => TextButton(
                       child: Text(snapshot.data![index].content),
@@ -49,6 +47,9 @@ class DriftSample extends ConsumerWidget {
                     child: ElevatedButton(
                       child: const Text('Add'),
                       onPressed: () async {
+                          await database.addTodo(
+                          'test test test',
+                        );
                       },
                     ),
                   ),
@@ -59,6 +60,10 @@ class DriftSample extends ConsumerWidget {
                     child: ElevatedButton(
                       child: const Text('remove'),
                       onPressed: () async {
+                        final list = await database.allTodoEntries;
+                        if (list.isNotEmpty) {
+                          await database.deleteTodo(list[list.length - 1]);
+                        }
                       },
                     ),
                   ),
