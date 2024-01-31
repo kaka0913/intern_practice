@@ -18,19 +18,15 @@ class _ImageGallaryServerState extends State<ImageGallaryServer> {
   final picker = ImagePicker();
 
   Future<void> getImageFromCamera() async {
-    print('Start');
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-    print('AAAAAAA');
 
     setState(() {
       if (pickedFile != null) {
         _image = File(pickedFile.path);
-        print('BBBBBBB');
       } else {
         print('No image selected.');
       }
     });
-    print('CCCCCC');
   }
 
   Future<void> _getImage() async {
