@@ -11,7 +11,8 @@ import 'package:intern_practice/my_home_page.dart';
 import 'package:intern_practice/scafford_with_navbar.dart';
 import 'package:intern_practice/secure_storage.dart';
 
-import 'package:intern_practice/image_gallery_saver.dart';
+
+import 'package:intern_practice/local_notification.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _sectionNavigatorKey = GlobalKey<NavigatorState>();
@@ -60,9 +61,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
               GoRoute(
                 path: '/pageview',
                 builder: (context, state) {
-                  return  ImageGallaryServer(
-                    key: UniqueKey(),
-                    );
+                  return   LocalNotification();
                 },
               ),
             ],
