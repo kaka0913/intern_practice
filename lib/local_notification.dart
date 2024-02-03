@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter_app_badger/flutter_app_badger.dart';
 
 // Project imports:
 import 'package:intern_practice/repository/local_notification_repository.dart';
@@ -38,6 +39,7 @@ class _LocalNotificationState extends State<LocalNotification> {
 
   @override
   Widget build(BuildContext context) {
+    FlutterAppBadger.removeBadge();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Simple Screen'),

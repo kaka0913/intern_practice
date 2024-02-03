@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
 
 // Project imports:
 import 'package:intern_practice/router.dart';
 
 void main() {
   tz.initializeTimeZones();
+  tz.setLocalLocation(tz.getLocation('Asia/Tokyo'));
   runApp(
     const MaterialApp(
       home: ProviderScope(child: MyApp()),
