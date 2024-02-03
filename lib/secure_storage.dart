@@ -1,11 +1,14 @@
+// Dart imports:
 import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
+// Flutter imports:
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+// Package imports:
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class ItemsWidget extends StatefulWidget {
   const ItemsWidget({super.key});
@@ -54,8 +57,8 @@ class ItemsWidgetState extends State<ItemsWidget> {
   }
 
   Future<void> _addNewItem() async {
-    final String key = _randomValue();
-    final String value = _randomValue();
+    final key = _randomValue();
+    final value = _randomValue();
 
     await _storage.write(
       key: key,
@@ -63,7 +66,7 @@ class ItemsWidgetState extends State<ItemsWidget> {
       iOptions: _getIOSOptions(),
       aOptions: _getAndroidOptions(),
     );
-    _readAll();
+    await _readAll();
   }
 
   IOSOptions _getIOSOptions() => IOSOptions(
@@ -95,7 +98,6 @@ class ItemsWidgetState extends State<ItemsWidget> {
                 switch (action) {
                   case _Actions.deleteAll:
                     _deleteAll();
-                    break;
                 }
               },
               itemBuilder: (BuildContext context) => <PopupMenuEntry<_Actions>>[
@@ -186,9 +188,8 @@ class ItemsWidgetState extends State<ItemsWidget> {
           iOptions: _getIOSOptions(),
           aOptions: _getAndroidOptions(),
         );
-        _readAll();
+        await _readAll();
 
-        break;
       case _ItemActions.edit:
         if (!context.mounted) return;
         final result = await showDialog<String>(
@@ -202,9 +203,8 @@ class ItemsWidgetState extends State<ItemsWidget> {
             iOptions: _getIOSOptions(),
             aOptions: _getAndroidOptions(),
           );
-          _readAll();
+          await _readAll();
         }
-        break;
       case _ItemActions.containsKey:
         if (!context.mounted) return;
         final key = await _displayTextInputDialog(context, item.key);
@@ -216,7 +216,6 @@ class ItemsWidgetState extends State<ItemsWidget> {
             backgroundColor: result ? Colors.green : Colors.red,
           ),
         );
-        break;
       case _ItemActions.read:
         if (!context.mounted) return;
         final key = await _displayTextInputDialog(context, item.key);
@@ -228,7 +227,6 @@ class ItemsWidgetState extends State<ItemsWidget> {
             content: Text('value: $result'),
           ),
         );
-        break;
     }
   }
 

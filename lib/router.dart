@@ -7,12 +7,10 @@ import 'package:go_router/go_router.dart';
 
 // Project imports:
 import 'package:intern_practice/account_detail_screen.dart';
+import 'package:intern_practice/local_notification.dart';
 import 'package:intern_practice/my_home_page.dart';
 import 'package:intern_practice/scafford_with_navbar.dart';
 import 'package:intern_practice/secure_storage.dart';
-
-
-import 'package:intern_practice/local_notification.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _sectionNavigatorKey = GlobalKey<NavigatorState>();
@@ -32,7 +30,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
             routes: <RouteBase>[
               GoRoute(
                 path: '/',
-                builder: (context, state) =>  const ItemsWidget(),
+                builder: (context, state) => const ItemsWidget(),
               ),
             ],
           ),
@@ -61,7 +59,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
               GoRoute(
                 path: '/pageview',
                 builder: (context, state) {
-                  return   LocalNotification();
+                  return const LocalNotification();
                 },
               ),
             ],

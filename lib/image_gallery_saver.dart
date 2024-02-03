@@ -1,13 +1,16 @@
+// Dart imports:
 import 'dart:io';
+
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
-import 'dart:typed_data';
+
+// Package imports:
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ImageGallaryServer extends StatefulWidget {
-  ImageGallaryServer({required Key key}) : super(key: key);
-
+  const ImageGallaryServer({required Key key}) : super(key: key);
 
   @override
   _ImageGallaryServerState createState() => _ImageGallaryServerState();
@@ -42,9 +45,9 @@ class _ImageGallaryServerState extends State<ImageGallaryServer> {
   }
 
   Future<void> _saveImage() async {
-    Uint8List? buffer = await _image?.readAsBytes();
+    final buffer = await _image?.readAsBytes();
     await ImageGallerySaver.saveImage(buffer!);
-    _toastInfo("画像を保存しました");
+    await _toastInfo('画像を保存しました');
   }
 
   Future<void> _toastInfo(String info) async {
@@ -58,42 +61,42 @@ class _ImageGallaryServerState extends State<ImageGallaryServer> {
         title: const Text('Save image to Gallery'),
       ),
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          if (_image != null) Image.file(_image!) else Container(),
-          const SizedBox(
-            height: 30,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              FloatingActionButton(
-                onPressed: getImageFromCamera,
-                child: const Icon(Icons.add_a_photo),
-              ),
-              FloatingActionButton(
-                onPressed: _getImage,
-                child: const Icon(Icons.image),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FloatingActionButton(
-                onPressed: _saveImage,
-                backgroundColor: Colors.red,
-                child: const Icon(Icons.save_alt),
-              ),
-            ],
-          ),
-        ],
-      )),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (_image != null) Image.file(_image!) else Container(),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                FloatingActionButton(
+                  onPressed: getImageFromCamera,
+                  child: const Icon(Icons.add_a_photo),
+                ),
+                FloatingActionButton(
+                  onPressed: _getImage,
+                  child: const Icon(Icons.image),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FloatingActionButton(
+                  onPressed: _saveImage,
+                  backgroundColor: Colors.red,
+                  child: const Icon(Icons.save_alt),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
