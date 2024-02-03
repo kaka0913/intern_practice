@@ -1,7 +1,9 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 
 final prefsProvider = FutureProvider<SharedPreferences>((ref) async {
   final prefs = await SharedPreferences.getInstance();
@@ -29,7 +31,7 @@ class SharedPreferencesDemo extends ConsumerWidget {
               'This should persist across restarts.',
             );
           },
-          loading: () =>  const CircularProgressIndicator(),
+          loading: () => const CircularProgressIndicator(),
           error: (err, _) => Text('Error: $err'),
         ),
       ),
