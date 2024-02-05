@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "616083116036",
+    "project_id": "venir-70486",
+    "storage_bucket": "venir-70486.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616083116036:android:05a1c9d4be610cb77c6551",
+        "android_client_info": {
+          "package_name": "com.example.intern_practice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWi-GZti5ChaFDzOOiA5nXH7Mm8M_lUnQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
