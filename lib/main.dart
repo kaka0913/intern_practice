@@ -1,7 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
@@ -9,7 +8,6 @@ import 'package:timezone/timezone.dart' as tz;
 
 // Project imports:
 import 'package:intern_practice/router.dart';
-import 'package:intern_practice/app.dart';
 
 void main() {
   tz.initializeTimeZones();
