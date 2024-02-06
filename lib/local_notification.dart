@@ -18,7 +18,7 @@ class LocalNotification extends StatefulWidget {
 
 class _LocalNotificationState extends State<LocalNotification> {
   final NotificationRepo = LocalNotificationRepository();
-  final SharedPreferencesRepo = SharedPreferencesRepository();
+  final sharedPreferencesRepo = SharedPreferencesRepository();
   bool? remind;
   bool? celebrate;
 
@@ -30,8 +30,8 @@ class _LocalNotificationState extends State<LocalNotification> {
   }
 
   Future<void> _init() async {
-    remind = await SharedPreferencesRepo.getCelebrateNotification() ?? false;
-    celebrate = await SharedPreferencesRepo.getCelebrateNotification() ?? false;
+    remind = await sharedPreferencesRepo.getCelebrateNotification() ?? false;
+    celebrate = await sharedPreferencesRepo.getCelebrateNotification() ?? false;
 
     setState(() {
       remind = remind;
@@ -68,7 +68,8 @@ class _LocalNotificationState extends State<LocalNotification> {
                       await NotificationRepo.cancel(NotificationType.remind);
                     }
                     //ローカルにフラグを保存
-                    await SharedPreferencesRepo.setCelebrateNotification(value);
+                    await sharedPreferencesRepo.
+                      setCelebrateNotification(value: value);
                     setState(() {
                       this.remind = value;
                     });
