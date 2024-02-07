@@ -4,7 +4,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 // Package imports:
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:intern_practice/repository/shared_preferences_repository.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 enum CameraPermissionStatus {
@@ -16,14 +15,9 @@ enum CameraPermissionStatus {
 }
 
 class CameraPermissionsHandler {
-  final sharedPreferencesRepo = SharedPreferencesRepository();
   bool? perm;
 
   Future<bool> get isGranted async {
-    final perm = await sharedPreferencesRepo.getCameraPermission();
-    if (perm == null) {
-      return false;
-    }
     final status = await Permission.camera.status;
     switch (status) {
       case PermissionStatus.granted:
@@ -38,9 +32,9 @@ class CameraPermissionsHandler {
   }
 
   Future<CameraPermissionStatus> request() async {
-    await sharedPreferencesRepo.setCameraPermission(value: true);
 
     final status = await Permission.camera.request();
+    print('request status: $status');
     switch (status) {
       case PermissionStatus.granted:
         return CameraPermissionStatus.granted;
@@ -57,9 +51,6 @@ class CameraPermissionsHandler {
     }
   }
 
-  Future<void> remove() async {
-    await sharedPreferencesRepo.removeCameraPermission();
-  }
 }
 
 class PermissionPage extends HookConsumerWidget {
@@ -91,12 +82,6 @@ class PermissionPage extends HookConsumerWidget {
               },
             ),
           ),
-          ElevatedButton(
-            onPressed: (){
-              CameraPermissionsHandler().remove();
-            }, 
-            child: const Text('許可を取り消す')
-          )
         ],
       ),
     );
