@@ -18,12 +18,14 @@ class ScaffoldWithNavbar extends StatelessWidget {
         unselectedItemColor: Colors.grey,
         currentIndex: navigationShell.currentIndex,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.feed), label: 'Feed'),
-          BottomNavigationBarItem(icon: Icon(Icons.shop), label: 'Shope'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_balance), label: 'Event'),
+          BottomNavigationBarItem(icon: Icon(Icons.diversity_1), label: 'Hall'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.question_answer), label: 'Talk'),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_box),
-            label: 'Pageview',
+            label: 'Profile',
           )
         ],
         onTap: _onTap,

@@ -1,7 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 
-
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
@@ -9,9 +8,12 @@ import 'package:timezone/timezone.dart' as tz;
 
 // Project imports:
 import 'package:intern_practice/router.dart';
-import 'package:intern_practice/app.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async{
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   tz.initializeTimeZones();
   tz.setLocalLocation(tz.getLocation('Asia/Tokyo'));
   runApp(

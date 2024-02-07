@@ -45,7 +45,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
           default:
             return SizedBox(
-                child: Center(child: Text('Invalid index: $index')));
+              child: Center(child: Text('Invalid index: $index')),
+            );
         }
       },
     );

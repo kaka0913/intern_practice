@@ -49,7 +49,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
               GoRoute(
                 path: '/home',
                 builder: (context, state) {
-                  return const MyHomePage();
+                  return const PermissionPage();
                 },
               ),
             ],
